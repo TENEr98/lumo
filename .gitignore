@@ -1,0 +1,19 @@
+.DS_Store
+
+# Rust
+core/target/
+core/generated/
+
+# Артефакты сборки ядра
+apple/Frameworks/*.xcframework
+
+# Xcode
+xcuserdata/
+DerivedData/
+build/
+*.xcuserstate
+
+# Тестовые данные генерируются скриптом (кроме README и генераторов)
+testdata/*
+!testdata/README.md
+!testdata/generators/
