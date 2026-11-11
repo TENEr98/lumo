@@ -1,0 +1,28 @@
+# CI по docs/kb/06-repository.md. Тесты с сетью, iCloud и разрешениями ОС здесь не запускаются.
+name: CI
+
+on:
+  push:
+    branches: [main, "sprint/**"]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rust (версия из core/rust-toolchain.toml)
+        working-directory: core
+        run: rustup show active-toolchain || rustup toolchain install
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            core/target
+          key: cargo-${{ hashFiles('core/Cargo.lock', 'core/rust-toolchain.toml') }}
+      - name: XcodeGen
+        run: brew install xcodegen
+      - name: Сборка и тесты
+        run: ./scripts/build-all.sh

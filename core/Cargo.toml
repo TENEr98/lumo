@@ -1,0 +1,27 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/storage",
+    "crates/archive",
+    "crates/imaging",
+    "crates/clipboard",
+    "crates/sync-model",
+    "crates/ffi",
+    "tools/uniffi-bindgen",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "UNLICENSED"
+publish = false
+
+[workspace.dependencies]
+# Версия UniFFI фиксируется точно: формат генерации меняется между версиями (скилл uniffi-bridge).
+uniffi = "=0.32.2"
+
+[profile.release]
+lto = true
+codegen-units = 1
+opt-level = "z"
+strip = "debuginfo"

@@ -12,15 +12,19 @@ lumo/
   core/              # Rust-воркспейс
     Cargo.toml
     rust-toolchain.toml
-    crates/{storage,archive,imaging,clipboard,sync-model,ffi}
+    crates/{storage,archive,imaging,clipboard,sync-model,ffi}   # пакеты lumo-*
+    tools/uniffi-bindgen    # генератор привязок той же версии, что uniffi
   apple/
-    Lumo.xcodeproj   # или Lumo.xcworkspace
+    project.yml      # описание проекта для XcodeGen
+    Lumo.xcodeproj   # генерируется `xcodegen`, не в git
+    Config/          # Base.xcconfig; Local.xcconfig с DEVELOPMENT_TEAM — не в git
     Lumo-macOS/
     Lumo-iOS/
     Extensions/{ShareExtension,BroadcastUpload,Keyboard}
     Packages/LumoKit/
     Frameworks/LumoCoreFFI.xcframework   # артефакт сборки, не в git
   scripts/
+    build-all.sh           # одна команда: ядро + оболочки + тесты
     build-xcframework.sh
     gen-testdata.sh
   testdata/          # генерируется, не в git (кроме README и генераторов)

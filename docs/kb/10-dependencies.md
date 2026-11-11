@@ -6,7 +6,7 @@
 
 | Зависимость | Версия | Лицензия | Зачем | Проверено |
 | --- | --- | --- | --- | --- |
-| uniffi | — | — | Мост Rust → Swift | |
+| uniffi | =0.32.2 | MPL-2.0 | Мост Rust → Swift (и `uniffi-bindgen` в `core/tools/`) | 2026-10-29, `cargo info` |
 | rusqlite (bundled) | — | — | SQLite + FTS5 | |
 | thiserror | — | — | Ошибки | |
 | serde, serde_json | — | — | Сериализация | |
@@ -18,3 +18,10 @@
 | unrar | — | обёртка + лицензия UnRAR | Только распаковка RAR | |
 | encoding_rs | — | — | CP866/CP1251 | |
 | uuid, time | — | — | Идентификаторы, время | |
+
+## Инструменты разработки (в приложение не попадают)
+
+| Инструмент | Версия | Лицензия | Зачем | Проверено |
+| --- | --- | --- | --- | --- |
+| Rust | 1.99.1 (`core/rust-toolchain.toml`) | MIT/Apache-2.0 | Компилятор ядра. Минимум 1.91 требуют зависимости uniffi 0.32 | 2026-10-29 |
+| XcodeGen | 2.46.0 (Homebrew) | MIT | Генерация `apple/Lumo.xcodeproj` из `apple/project.yml` | 2026-10-29 |

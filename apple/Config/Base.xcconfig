@@ -1,0 +1,6 @@
+// Общие настройки целей. Идентификаторы нейтральные (ADR-008), финальные задаются при оплате членства.
+BUNDLE_ID_PREFIX = dev.lumo
+
+// Команда разработчика задаётся локально в Local.xcconfig (не в git):
+//   DEVELOPMENT_TEAM = XXXXXXXXXX
+#include? "Local.xcconfig"

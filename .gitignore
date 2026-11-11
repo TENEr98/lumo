@@ -17,3 +17,8 @@ build/
 testdata/*
 !testdata/README.md
 !testdata/generators/
+apple/Config/Local.xcconfig
+# Сгенерирован XcodeGen из apple/project.yml
+apple/Lumo.xcodeproj/
+# Каталог сборки SwiftPM (`swift test` в apple/Packages/LumoKit)
+.build/

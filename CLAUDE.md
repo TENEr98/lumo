@@ -52,12 +52,13 @@ Rust-ядро делает всё, что не зависит от платфо�
 
 ## Команды
 
-Заполняются в задаче 0.2 этапа 0, когда появится скелет репозитория:
-
-- Сборка и тесты ядра: `cargo test --workspace` (из `core/`)
-- Сборка XCFramework: `./scripts/build-xcframework.sh`
-- Сборка Mac-приложения: `xcodebuild -scheme Lumo-macOS build`
-- Сборка iOS-приложения: `xcodebuild -scheme Lumo-iOS -destination 'generic/platform=iOS Simulator' build`
+- Всё сразу (ядро, XCFramework, тесты LumoKit, Mac и iOS): `./scripts/build-all.sh`
+- Сборка и тесты ядра: `cargo test --workspace` (из `core/`); перед сдачей ещё `cargo fmt --all --check` и `cargo clippy --workspace --all-targets -- -D warnings`
+- Сборка XCFramework и Swift-привязок: `./scripts/build-xcframework.sh`
+- Проект Xcode генерируется из `apple/project.yml`: `cd apple && xcodegen`. `Lumo.xcodeproj` не правится руками и не хранится в git
+- Сборка Mac-приложения: `xcodebuild -project apple/Lumo.xcodeproj -scheme Lumo-macOS build`
+- Сборка iOS-приложения: `xcodebuild -project apple/Lumo.xcodeproj -scheme Lumo-iOS -destination 'generic/platform=iOS Simulator' build`
+- Тесты LumoKit: `swift test` (из `apple/Packages/LumoKit`)
 
 ## Стиль общения с владельцем
 
